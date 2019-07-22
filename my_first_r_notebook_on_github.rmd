@@ -1,0 +1,34 @@
+---
+title: "My First R Notebook on Github"
+output:
+  html_document:
+    df_print: paged
+---
+
+
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(plotly)
+library(DT)
+```
+
+This is my first R Notebook that I'm going to publish on Github as proof of concept.
+
+
+# Table
+
+I'm using the DT packge to display the data from the built-in data set `economics`
+
+```{r}
+data(economics)
+DT::datatable(economics)
+```
+
+# Plot
+```{r}
+economics %>%
+        plot_ly(x = ~date, y = ~pce) %>%
+        add_lines()
+```
+
